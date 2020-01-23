@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+	<h1>Sign In</h1>
+    <form action="" method="post" novalidate>
+		{{form.hidden_tag()}}
+		<!--<form method=post action="/register/">-->
+			<p>
+            {{ form.user_id.label }}<br>
+            {{ form.user_id(size=3) }}<br>
+            {% for error in form.user_id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        	</p>
+        	<p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=20) }}<br>
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        	</p>
+            <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=20) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            </p>
+        	<p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=20) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        	</p>
+        	<p>
+            {{ form.confirm.label }}<br>
+            {{ form.confirm(size=20) }}<br>
+            {% for error in form.confirm.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        	</p>
+        	<p>{{ form.accept_tos() }}{{form.accept_tos.label}}</p>
+			<p>{{ form.submit()}}</p>
+			<!--<p><input type=submit value=Register></p>-->
+		</form>
+		
+		{% if error %}
+			<p class="error"><strong>Error:</strong>{{error}}</p>
+		{% endif %}
+
+	</div>
+</body>
+
+{% endblock %}

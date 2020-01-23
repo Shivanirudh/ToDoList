@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Add Task</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.task.label }}<br>
+            {{ form.task(size=32) }}<br>
+            {% for error in form.task.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.due_date.label }}<br>
+            {{ form.due_date(size=32) }}<br>
+            {% for error in form.due_date.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.status.label }}<br>
+            {{ form.status(size=32) }}<br>
+            {% for error in form.status.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>        
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

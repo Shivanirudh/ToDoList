@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello there!!!</h1>
+    <h2>List of all activities </h2>
+    {% for post in posts %}
+    	<div><p>
+    	{% for i in post %}
+    		{{ i }}</b>
+    	{% endfor %}
+    </p></div>
+    {% endfor %}
+{% endblock %}
